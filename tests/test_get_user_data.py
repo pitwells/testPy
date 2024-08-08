@@ -9,7 +9,6 @@ LIST_USERS = "api/users?page=2"
 def test_list_users():
     with allure.step("делаем запрос по адресу"):
         response = requests.get(BASE_URL + LIST_USERS)
-    #print(response.json())
     with allure.step("hkhh"):
         assert response.status_code == 200
 
@@ -18,4 +17,4 @@ def test_list_users():
         with allure.step("check item list"):
             validate(i, USER_DATA_SCHEME)
             with allure.step("check end email adress"):
-                assert i['email'].endswith('.org')
+                assert i['email'].endswith('@reqres.in')
